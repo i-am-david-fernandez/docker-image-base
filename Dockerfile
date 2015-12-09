@@ -32,10 +32,11 @@ RUN echo "Configuring apt [${APT_PROXY}]..." \
     && echo "Complete"
 
 
+## <DF> This is mostly kept here for reference and as a template/guide for inheriting Dockerfiles.
 ## Install application
 RUN echo "Installing..." \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y mc \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y mc tree \
     && DEBIAN_FRONTEND=noninteractive apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo "Complete"
