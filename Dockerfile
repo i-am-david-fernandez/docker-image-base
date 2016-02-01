@@ -4,7 +4,9 @@ FROM ubuntu:trusty
 MAINTAINER David Fernandez <i.am.david.fernandez@gmail.com>
 
 
-## Specify build arguments.
+## Specify build arguments (requires docker v1.9+)
+## # An apt-cache proxy may be specified (especially useful for local builds),
+## # such as --build-arg=APT_PROXY=Acquire::http::proxy \"http://my-proxy:3142\";
 ARG APT_PROXY=""
 ARG TIMEZONE=""
 
@@ -36,7 +38,9 @@ RUN echo "Configuring apt [${APT_PROXY}]..." \
 ## Install application
 RUN echo "Installing..." \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y mc tree \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+       mc \
+       tree \
     && DEBIAN_FRONTEND=noninteractive apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo "Complete"
