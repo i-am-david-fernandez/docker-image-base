@@ -44,9 +44,11 @@ RUN echo "Installing..." \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
        ## Allow use of https repos
        apt-transport-https \
-       ## Allow retrieval of things (such as gosu,below)
+       ## Allow retrieval of things (such as gosu, below)
        curl \
        wget \
+       ## Allow for elevated privileges where required
+       sudo \
     && DEBIAN_FRONTEND=noninteractive apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo "Complete"
