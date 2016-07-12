@@ -1,15 +1,16 @@
-FROM ubuntu:xenial
+FROM ubuntu:trusty
 
 
 MAINTAINER David Fernandez <i.am.david.fernandez@gmail.com>
 
 
 ## Specify build arguments (requires docker v1.9+)
-## # An apt-cache proxy may be specified (especially useful for local builds),
-## # such as --build-arg=APT_PROXY=Acquire::http::proxy \"http://my-proxy:3142\";
+##  An apt-cache proxy may be specified (especially useful for local builds),
+##  such as --build-arg=APT_PROXY=Acquire::http::proxy \"http://my-proxy:3142\";
 ARG APT_PROXY=""
 ARG TIMEZONE=""
-ARG RELEASE="xenial"
+##  The release must match that specified in 'FROM' above.
+ARG RELEASE="trusty"
 
 
 ## Set timezone
