@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 
 MAINTAINER David Fernandez <i.am.david.fernandez@gmail.com>
@@ -10,7 +10,7 @@ MAINTAINER David Fernandez <i.am.david.fernandez@gmail.com>
 ARG APT_PROXY=""
 ARG TIMEZONE=""
 ##  The release must match that specified in 'FROM' above.
-ARG RELEASE="trusty"
+ARG RELEASE="xenial"
 
 
 ## Set timezone
